@@ -1,0 +1,10 @@
+/target/
+.idea/*
+.svn/
+*.iml
+.settings/
+.classpath
+.project
+food_info_api.xml
+*.lst
+*.MF
