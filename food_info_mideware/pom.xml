@@ -6,4 +6,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   
+    <modules>
+    <module>food_info_mideware_redis</module>
+  </modules>
 </project>
