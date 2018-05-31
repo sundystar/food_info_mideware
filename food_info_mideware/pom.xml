@@ -8,5 +8,11 @@
   
     <modules>
     <module>food_info_mideware_redis</module>
+    <module>food_info_mideware_rocketmq</module>
+    <module>food_info_mideware_hadoop</module>
+    <module>food_info_mideware_habase</module>
+    <module>food_info_mideware_mongodb</module>
+    <module>food_info_mideware_zookeeper</module>
+    <module>food_info_mideware_fastsdk</module>
   </modules>
 </project>
