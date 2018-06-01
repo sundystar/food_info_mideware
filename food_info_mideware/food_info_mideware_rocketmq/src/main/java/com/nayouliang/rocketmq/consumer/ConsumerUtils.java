@@ -1,4 +1,4 @@
-package com.nayouliang.rocjetmq;
+package com.nayouliang.rocketmq.consumer;
 
 import java.util.Date;
 import java.util.List;
@@ -25,12 +25,12 @@ import com.foodinfo.enums.SysConfigEnum;
  */  
 public class ConsumerUtils {  
   
-	private static ConsumerUtils instance = new ConsumerUtils();
+	private static ConsumerUtils instance =null;
 	
-    DefaultMQPushConsumer consumer = new DefaultMQPushConsumer(UUID.randomUUID().toString().replaceAll("-", ""));  
-
+    private DefaultMQPushConsumer consumer = null;
 	
-	private ConsumerUtils() {
+	private ConsumerUtils(String groupName) {
+		consumer = new DefaultMQPushConsumer(UUID.randomUUID().toString().replaceAll("-", ""));  
 		String addr = SysConfig.getConfig("namesrvAddr",SysConfigEnum.ROCKETMQ);
 		consumer.setNamesrvAddr(addr);  
         consumer.setConsumeMessageBatchMaxSize(10);  
@@ -41,10 +41,10 @@ public class ConsumerUtils {
         consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);  
 	}
 	
-	public static synchronized ConsumerUtils getInstance() {
+	public static synchronized ConsumerUtils getInstance(String groupName) {
 		if(instance == null ) {
 			synchronized (instance) {
-				return new ConsumerUtils();
+				return new ConsumerUtils(groupName);
 			}
 		}
 		return instance;

@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 
 import com.foodinfo.base.SerializeUtils;
 import com.foodinfo.base.SysConfig;
+import com.foodinfo.enums.SysConfigEnum;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
@@ -55,13 +56,13 @@ public final class RedisUtil {
     static {
         try {
         	
-        	ADDR = SysConfig.getConfig("redis.ip");
-        	PORT = Integer.parseInt(SysConfig.getConfig("redis.port"));
-        	AUTH = SysConfig.getConfig("redis.password");
-        	MAX_ACTIVE = Integer.parseInt(SysConfig.getConfig("redis.max_active"));
-        	MAX_IDLE =Integer.parseInt(SysConfig.getConfig("redis.max_idle"));
-        	MAX_WAIT =Integer.parseInt(SysConfig.getConfig("redis.max_wait"));
-        	TIMEOUT =Integer.parseInt(SysConfig.getConfig("redis.timeout"));
+        	ADDR = SysConfig.getConfig("redis.ip",SysConfigEnum.REDIS);
+        	PORT = Integer.parseInt(SysConfig.getConfig("redis.port",SysConfigEnum.REDIS));
+        	AUTH = SysConfig.getConfig("redis.password",SysConfigEnum.REDIS);
+        	MAX_ACTIVE = Integer.parseInt(SysConfig.getConfig("redis.max_active",SysConfigEnum.REDIS));
+        	MAX_IDLE =Integer.parseInt(SysConfig.getConfig("redis.max_idle",SysConfigEnum.REDIS));
+        	MAX_WAIT =Integer.parseInt(SysConfig.getConfig("redis.max_wait",SysConfigEnum.REDIS));
+        	TIMEOUT =Integer.parseInt(SysConfig.getConfig("redis.timeout",SysConfigEnum.REDIS));
         	
         	JedisPoolConfig config = new JedisPoolConfig();
             config.setMaxTotal(MAX_ACTIVE);

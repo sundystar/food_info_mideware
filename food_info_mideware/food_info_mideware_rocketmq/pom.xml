@@ -20,7 +20,7 @@
     	<groupId>food_info_common</groupId>
 		<artifactId>food_info_base</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-    </dependency>
+     </dependency>
     
     <dependency>
     	<groupId>food_info_common</groupId>
@@ -31,8 +31,14 @@
     <dependency>  
 	    <groupId>com.alibaba.rocketmq</groupId>  
 	    <artifactId>rocketmq-client</artifactId>  
-	    <version>3.2.6</version>  
-	</dependency> 
-    
+	    <version>3.2.6</version>
+	    <exclusions>
+	    	<exclusion>
+	    		<groupId>com.alibaba</groupId>
+	    		<artifactId>fastjson</artifactId>
+	    	</exclusion>
+	    </exclusions>
+    </dependency> 
+   
   </dependencies>
 </project>
